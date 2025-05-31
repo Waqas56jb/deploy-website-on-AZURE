@@ -1,16 +1,79 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Login</title>
-  <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome - HealthGenix</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="./css/styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.4/dist/chart.umd.min.js"></script>
 </head>
 <body>
-  <h2>Login</h2>
-  <form action="/login" method="POST">
-    <input type="text" name="email" placeholder="Email" required />
-    <input type="password" name="password" placeholder="Password" required />
-    <button type="submit">Login</button>
-  </form>
-  <a href="signup.html">Don't have an account? Sign up</a>
+  <div class="container">
+    <div class="form-box">
+      <div class="logo-container">
+        <a href="./chatbot.html" class="animated-logo">
+          <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="50" cy="50" r="40" fill="none" stroke="#fff" stroke-width="4"/>
+            <path d="M50 30 L50 50 L65 60" fill="none" stroke="#fff" stroke-width="4"/>
+            <text x="50" y="55" text-anchor="middle" fill="#fff" font-size="20" font-weight="600">HG</text>
+          </svg>
+        </a>
+      </div>
+      <h2>Welcome to HealthGenix</h2>
+      <p class="welcome-text">Login Successful! Explore our intelligent chatbot.</p>
+      <div class="overview-section">
+        <h3>Chatbot Overview</h3>
+        <p>Our HealthGenix Chatbot is your personal health assistant, powered by advanced AI to provide instant answers to your health queries. Ask about symptoms, wellness tips, or general health advice, and get reliable, user-friendly responses.</p>
+      </div>
+      <div class="stats-section">
+        <h3>Chatbot Stats</h3>
+        <div class="stats-grid">
+          <div class="stat-card">
+            <h4>Messages Sent</h4>
+            <p>1,234</p>
+          </div>
+          <div class="stat-card">
+            <h4>Active Sessions</h4>
+            <p>56</p>
+          </div>
+          <div class="stat-card">
+            <h4>Average Response Time</h4>
+            <p>1.2s</p>
+          </div>
+        </div>
+      </div>
+      <div class="chart-section">
+        <h3>Usage Trends</h3>
+        <canvas id="usageChart"></canvas>
+      </div>
+      <a href="./chatbot.html" class="fancy-btn">Go to Chatbot</a>
+    </div>
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const ctx = document.getElementById('usageChart').getContext('2d');
+      new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May'],
+          datasets: [{
+            label: 'Chatbot Interactions',
+            data: [200, 350, 500, 450, 600],
+            borderColor: '#6e8efb',
+            backgroundColor: 'rgba(110, 142, 251, 0.2)',
+            fill: true,
+            tension: 0.4
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: { beginAtZero: true }
+          }
+        }
+      });
+    });
+  </script>
 </body>
 </html>
